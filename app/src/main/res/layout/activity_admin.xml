@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Админ-панель"
+        android:background="?attr/colorSurface"
+        android:titleTextColor="?android:attr/textColorPrimary"
+        app:navigationIcon="@drawable/ic_baseline_arrow_back_24"/>
+
+    <!-- Toggle buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnManage"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Управление"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogs"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Журнал"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Manage view -->
+    <LinearLayout
+        android:id="@+id/manageView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRefreshDocs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Обновить список документов"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/adminDocRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/adminDocEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Нет документов"
+            android:visibility="gone"
+            android:padding="12dp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+    <!-- Logs view -->
+    <LinearLayout
+        android:id="@+id/logsView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="12dp"
+        android:visibility="gone">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRefreshLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Обновить журнал"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/logsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/logsEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Журнал пуст"
+            android:visibility="gone"
+            android:padding="12dp"
+            android:textAlignment="center"/>
+    </LinearLayout>
+
+</LinearLayout>
